@@ -1,22 +1,13 @@
-import multiprocessing
-import smm_bot_Final
-import Claw_VIP_Final
+import subprocess
+import sys
+import os
 
-def run_smm():
-    smm_bot_Final.main()
+# দুটো বট আলাদা process এ চালাও
+p1 = subprocess.Popen([sys.executable, "smm_bot_Final.py"])
+p2 = subprocess.Popen([sys.executable, "Claw_VIP_Final.py"])
 
-def run_claw():
-    Claw_VIP_Final.main()
+print("✅ SMM Bot চালু!")
+print("✅ Claw VIP Bot চালু!")
 
-if __name__ == "__main__":
-    p1 = multiprocessing.Process(target=run_smm,  name="SMM_Bot")
-    p2 = multiprocessing.Process(target=run_claw, name="Claw_VIP_Bot")
-
-    p1.start()
-    p2.start()
-
-    print("✅ SMM Bot চালু!")
-    print("✅ Claw VIP Bot চালু!")
-
-    p1.join()
-    p2.join()
+p1.wait()
+p2.wait()
