@@ -4,7 +4,7 @@ import os
 
 print("📁 Files in directory:", os.listdir('.'))
 
-if name == "main":
+if __name__== "__main__":
     p1 = subprocess.Popen([sys.executable, "smm_bot_Final.py"])
     p2 = subprocess.Popen([sys.executable, "Claw_VIP_Final.py"])
 
